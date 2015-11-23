@@ -326,10 +326,10 @@ sp<DataSource> DataSource::CreateFromURI(
                         cacheConfig.isEmpty() ? NULL : cacheConfig.string(),
                         disconnectAtHighwatermark);
             } else {
-                source = new NuCachedSource2(
-                        httpSource,
-                        cacheConfig.isEmpty() ? NULL : cacheConfig.string(),
-                        disconnectAtHighwatermark);
+                source = NuCachedSource2::Create(
+                    httpSource,
+                    cacheConfig.isEmpty() ? NULL : cacheConfig.string(),
+                    disconnectAtHighwatermark);
             }
         } else {
             // We do not want that prefetching, caching, datasource wrapper
